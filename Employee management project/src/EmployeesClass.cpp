@@ -42,7 +42,7 @@ void Employees::ViewAboutProgramMenu() {
 	std::cout << "      --- About the program ---\n\n\n";
 	std::cout << "*************************************\n";
 	std::cout << "*                                   *\n";
-	std::cout << "*    developed by : Ahmed Hamoud    *\n";
+	std::cout << "*  developed by : Tomino(@tomino47) *\n";
 	std::cout << "*                                   *\n";
 	std::cout << "*************************************\n\n\n";
 }
