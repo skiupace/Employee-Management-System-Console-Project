@@ -131,7 +131,7 @@
     <ClCompile Include="src\EmployeesClass.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Header Files\EmployeesClass.h" />
+    <ClInclude Include="classes\EmployeesClass.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

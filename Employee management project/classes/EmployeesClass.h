@@ -7,6 +7,7 @@ public:
 	// Methods
 	bool isEmpty();
 	void ViewMainMenu();
+	int InputAndReturn();
 	void ViewAboutProgramMenu();
 	void ViewUpdatingOptions();
 	void ViewSearchingOptions();
@@ -19,13 +20,6 @@ public:
 	template<class T> // <-- A template function to take input from char and int
 	int InputAndErrorHanlder(T);
 
-	struct variables { // <-- A structure with all most used variables
-		char conform{};
-		std::string EmployeeFullName, EmployeeAddress;
-		int EmployeeNumber = 1, EmployeeAge{}, EmployeePhoneNumber{}, 
-			EmployeeManagmentNumber{}, IdNumber{}, choice{};
-	} var;
-
 private:
 	// Properties
 	std::vector<std::string> EmployeeFullName,
@@ -35,4 +29,11 @@ private:
 					 EmployeeAge, 
 					 EmployeePhoneNumber, 
 					 EmployeeManagmentNumber;
+
+	struct variables { // <-- A structure with all most used variables
+		char conform{};
+		std::string EmployeeFullName, EmployeeAddress;
+		int EmployeeNumber{}, EmployeeAge{}, EmployeePhoneNumber{},
+			EmployeeManagmentNumber{}, IdNumber{}, choice{};
+	} var;
 };
