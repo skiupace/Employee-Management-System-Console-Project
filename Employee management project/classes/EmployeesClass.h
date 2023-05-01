@@ -7,12 +7,12 @@ public:
 	// Methods
 	bool isEmpty();
 	void ViewMainMenu();
-	int InputAndReturn();
 	void ViewAboutProgramMenu();
 	void ViewUpdatingOptions();
 	void ViewSearchingOptions();
 	void HireNewEmployee();
 	void UpdatingEmployeesInfo();
+	void TakeIdNumberAndExitFunction();
 	void SearchForEmployeeByFiltring();
 	void ViewAllEmployeesInfo();
 	void DeletingEmployeeInfo();
@@ -31,7 +31,10 @@ private:
 					 EmployeeManagmentNumber;
 
 	struct variables { // <-- A structure with all most used variables
+
 		char conform{};
+		bool InfoExist = false;
+
 		std::string EmployeeFullName, EmployeeAddress;
 		int EmployeeNumber{}, EmployeeAge{}, EmployeePhoneNumber{},
 			EmployeeManagmentNumber{}, IdNumber{}, choice{};
