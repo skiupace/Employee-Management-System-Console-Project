@@ -18,7 +18,7 @@ public:
 	void DeletingEmployeeInfo();
 
 	template<class T> // <-- A template function to take input from char and int
-	int InputAndErrorHanlder(T);
+	T InputAndErrorHanlder(T);
 
 private:
 	// Properties

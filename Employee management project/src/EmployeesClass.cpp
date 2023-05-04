@@ -47,7 +47,7 @@ void Employees::ViewAboutProgramMenu() {
 }
 
 template<class T>
-int Employees::InputAndErrorHanlder(T var) { // <-- A function that take and check the input
+T Employees::InputAndErrorHanlder(T var) { // <-- A function that take and check the input
 
 	// Taking input from user
 	std::cin >> var;
@@ -56,9 +56,8 @@ int Employees::InputAndErrorHanlder(T var) { // <-- A function that take and che
 	if (std::cin.fail()) {
 		std::cin.clear();
 		std::cin.ignore(256, '\n');
-		std::cout << "\nWrong input, please try again ...\n";
-	}
-	return var;
+		std::cout << "Wrong input, please try again ...\n";
+	} return var;
 }
 
 // A function that take the IdNumber as input,
@@ -101,12 +100,15 @@ void Employees::HireNewEmployee() { // <-- A function that let user add an emplo
 	var.conform = InputAndErrorHanlder(var.conform);
 
 	if (var.conform == 'y' || var.conform == 'Y') {
+
 		this->EmployeeNumber.push_back(++var.EmployeeNumber); // <-- Push Back the entered values
 		this->EmployeeFullName.push_back(var.EmployeeFullName);
 		this->EmployeeAge.push_back(var.EmployeeAge);
 		this->EmployeePhoneNumber.push_back(var.EmployeePhoneNumber);
 		this->EmployeeManagmentNumber.push_back(var.EmployeeManagmentNumber);
 		this->EmployeeAddress.push_back(var.EmployeeAddress);
+
+		std::cout << "The operation has been completed ...\n";
 	}
 
 	else if (var.conform == 'n' || var.conform == 'N') {
