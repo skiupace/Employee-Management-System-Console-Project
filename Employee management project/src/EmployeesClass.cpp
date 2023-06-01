@@ -3,7 +3,6 @@
 #include <vector>
 #include "../classes/EmployeesClass.h"
 
-// Implements
 void Employees::ViewMainMenu() { // <-- A function that shows the main menu
 	std::cout << "--- Employee Management System ---\n\n";
 	std::cout << "1- Hire New Employee\n";
@@ -60,18 +59,15 @@ T Employees::InputAndErrorHanlder(T var) { // <-- A function that take and check
 	} return var;
 }
 
-// A function that take the IdNumber as input,
-// and if it was '0' it will exit the function
-void Employees::TakeIdNumberAndExitFunction() {
+int Employees::TakeIdNumberAndExitFunction() {
 
-	// Take the employee id as input
 	std::cout << "Enter Employee Id Number or 0 to return : ";
 	var.IdNumber = InputAndErrorHanlder(var.IdNumber);
 
-	if (var.IdNumber == 0) return; // <-- If user input (0), return one step back
+	if (var.IdNumber == 0) return 0; // <-- If user input (0), return one step back
 }
 
-bool Employees::isEmpty() { // <-- A function that returns true if the vector is empty
+const bool Employees::isEmpty() const { // <-- A function that returns true if the vector is empty
 	return EmployeeNumber.empty();
 }
 
@@ -134,17 +130,16 @@ void Employees::UpdatingEmployeesInfo() { // <-- A function that let user unpdat
 		switch (UncompletedOption) {
 		case 1:
 			system("cls");
-
-			TakeIdNumberAndExitFunction();
+			if (!TakeIdNumberAndExitFunction()) return;
 			var.InfoExist = false;
 
 			// Check if the id is valid or not
-			for (int i = 0; i < this->EmployeeNumber.size(); i++) {
+			for (int i = 0; i < EmployeeNumber.size(); i++) {
 				if (var.IdNumber == this->EmployeeNumber[i]) {
-					var.InfoExist = true;
 
+					var.InfoExist = true;
 					std::cout << "\nAre You sure to update this employee info \"";
-					std::cout << this->EmployeeFullName[i] << "\" ? (Y/N) : ";
+					std::cout << EmployeeFullName[i] << "\" ? (Y/N) : ";
 					var.conform = InputAndErrorHanlder(var.conform);
 				}
 			}
@@ -156,7 +151,6 @@ void Employees::UpdatingEmployeesInfo() { // <-- A function that let user unpdat
 
 			// Check if the user agree for the changes or not
 			if (var.conform == 'y' || var.conform == 'Y') {
-				// If it agrees let him entered the new info
 				std::cout << "Enter Employee Full Name or 0 to return : ";
 				std::getline(std::cin >> std::ws, var.EmployeeFullName);
 			}
@@ -173,11 +167,11 @@ void Employees::UpdatingEmployeesInfo() { // <-- A function that let user unpdat
 			}
 
 			// Delete the old info and replace it with the new one
-			for (int i = 0; i < this->EmployeeNumber.size(); i++) {
+			for (int i = 0; i < EmployeeNumber.size(); i++) {
 				if ((var.IdNumber == this->EmployeeNumber[i])
 					&& (var.conform == 'y' || var.conform == 'Y')) {
 
-					this->EmployeeFullName.erase(this->EmployeeFullName.begin() + i);
+					EmployeeFullName.erase(EmployeeFullName.begin() + i);
 					this->EmployeeFullName.push_back(var.EmployeeFullName);
 					std::cout << "The info has been updated ...\n";
 				}
@@ -186,16 +180,15 @@ void Employees::UpdatingEmployeesInfo() { // <-- A function that let user unpdat
 
 		case 2:
 			system("cls");
-
-			TakeIdNumberAndExitFunction();
+			if (!TakeIdNumberAndExitFunction()) return;
 			var.InfoExist = false;
 
-			for (int i = 0; i < this->EmployeeNumber.size(); i++) {
+			for (int i = 0; i < EmployeeNumber.size(); i++) {
 				if (var.IdNumber == this->EmployeeNumber[i]) {
-					var.InfoExist = true;
 
+					var.InfoExist = true;
 					std::cout << "\nAre You sure to update this employee info \"";
-					std::cout << this->EmployeeFullName[i] << "\" ? (Y/N) : ";
+					std::cout << EmployeeFullName[i] << "\" ? (Y/N) : ";
 					var.conform = InputAndErrorHanlder(var.conform);
 				}
 			}
@@ -220,11 +213,11 @@ void Employees::UpdatingEmployeesInfo() { // <-- A function that let user unpdat
 				return;
 			}
 
-			for (int i = 0; i < this->EmployeeNumber.size(); i++) {
+			for (int i = 0; i < EmployeeNumber.size(); i++) {
 				if ((var.IdNumber == this->EmployeeNumber[i])
 					&& (var.conform == 'y' || var.conform == 'Y')) {
 
-					this->EmployeeAge.erase(this->EmployeeAge.begin() + i);
+					EmployeeAge.erase(EmployeeAge.begin() + i);
 					this->EmployeeAge.push_back(var.EmployeeAge);
 					std::cout << "The info has been updated ...\n";
 				}
@@ -233,16 +226,15 @@ void Employees::UpdatingEmployeesInfo() { // <-- A function that let user unpdat
 
 		case 3:
 			system("cls");
-
-			TakeIdNumberAndExitFunction();
+			if (!TakeIdNumberAndExitFunction()) return;
 			var.InfoExist = false;
 
-			for (int i = 0; i < this->EmployeeNumber.size(); i++) {
+			for (int i = 0; i < EmployeeNumber.size(); i++) {
 				if (var.IdNumber == this->EmployeeNumber[i]) {
-					var.InfoExist = true;
 
+					var.InfoExist = true;
 					std::cout << "\nAre You sure to update this employee info \"";
-					std::cout << this->EmployeeFullName[i] << "\" ? (Y/N) : ";
+					std::cout << EmployeeFullName[i] << "\" ? (Y/N) : ";
 					var.conform = InputAndErrorHanlder(var.conform);
 				}
 			}
@@ -267,11 +259,11 @@ void Employees::UpdatingEmployeesInfo() { // <-- A function that let user unpdat
 				return;
 			}
 
-			for (int i = 0; i < this->EmployeeNumber.size(); i++) {
+			for (int i = 0; i < EmployeeNumber.size(); i++) {
 				if ((var.IdNumber == this->EmployeeNumber[i])
 					&& (var.conform == 'y' || var.conform == 'Y')) {
 
-					this->EmployeePhoneNumber.erase(this->EmployeePhoneNumber.begin() + i);
+					EmployeePhoneNumber.erase(EmployeePhoneNumber.begin() + i);
 					this->EmployeePhoneNumber.push_back(var.EmployeePhoneNumber);
 					std::cout << "The info has been updated ...\n";
 				}
@@ -280,16 +272,15 @@ void Employees::UpdatingEmployeesInfo() { // <-- A function that let user unpdat
 
 		case 4:
 			system("cls");
-
-			TakeIdNumberAndExitFunction();
+			if (!TakeIdNumberAndExitFunction()) return;
 			var.InfoExist = false;
 
-			for (int i = 0; i < this->EmployeeNumber.size(); i++) {
+			for (int i = 0; i < EmployeeNumber.size(); i++) {
 				if (var.IdNumber == this->EmployeeNumber[i]) {
-					var.InfoExist = true;
 
+					var.InfoExist = true;
 					std::cout << "\nAre You sure to update this employee info \"";
-					std::cout << this->EmployeeFullName[i] << "\" ? (Y/N) : ";
+					std::cout << EmployeeFullName[i] << "\" ? (Y/N) : ";
 					var.conform = InputAndErrorHanlder(var.conform);
 				}
 			}
@@ -314,11 +305,11 @@ void Employees::UpdatingEmployeesInfo() { // <-- A function that let user unpdat
 				return;
 			}
 
-			for (int i = 0; i < this->EmployeeNumber.size(); i++) {
+			for (int i = 0; i < EmployeeNumber.size(); i++) {
 				if ((var.IdNumber == this->EmployeeNumber[i])
 					&& (var.conform == 'y' || var.conform == 'Y')) {
 
-					this->EmployeeManagmentNumber.erase(this->EmployeeManagmentNumber.begin() + i);
+					EmployeeManagmentNumber.erase(EmployeeManagmentNumber.begin() + i);
 					this->EmployeeManagmentNumber.push_back(var.EmployeeManagmentNumber);
 					std::cout << "The info has been updated ...\n";
 				}
@@ -327,16 +318,15 @@ void Employees::UpdatingEmployeesInfo() { // <-- A function that let user unpdat
 
 		case 5:
 			system("cls");
-
-			TakeIdNumberAndExitFunction();
+			if (!TakeIdNumberAndExitFunction()) return;
 			var.InfoExist = false;
 
-			for (int i = 0; i < this->EmployeeNumber.size(); i++) {
+			for (int i = 0; i < EmployeeNumber.size(); i++) {
 				if (var.IdNumber == this->EmployeeNumber[i]) {
-					var.InfoExist = true;
 
+					var.InfoExist = true;
 					std::cout << "\nAre You sure to update this employee info \"";
-					std::cout << this->EmployeeFullName[i] << "\" ? (Y/N) : ";
+					std::cout << EmployeeFullName[i] << "\" ? (Y/N) : ";
 					var.conform = InputAndErrorHanlder(var.conform);
 				}
 			}
@@ -361,11 +351,11 @@ void Employees::UpdatingEmployeesInfo() { // <-- A function that let user unpdat
 				return;
 			}
 
-			for (int i = 0; i < this->EmployeeNumber.size(); i++) {
+			for (int i = 0; i < EmployeeNumber.size(); i++) {
 				if ((var.IdNumber == this->EmployeeNumber[i])
 					&& (var.conform == 'y' || var.conform == 'Y')) {
 
-					this->EmployeeAddress.erase(this->EmployeeAddress.begin() + i);
+					EmployeeAddress.erase(EmployeeAddress.begin() + i);
 					this->EmployeeAddress.push_back(var.EmployeeAddress);
 					std::cout << "The info has been updated ...\n";
 				}
@@ -396,14 +386,14 @@ void Employees::SearchForEmployeeByFiltring() { // <-- A function that let user 
 		switch (var.choice) {
 		case 1:
 			system("cls");
-			TakeIdNumberAndExitFunction();
+			if (!TakeIdNumberAndExitFunction()) return;
 			var.InfoExist = false;
 
 			// Check if the id is valid or not
-			for (int i = 0; i < this->EmployeeNumber.size(); i++) {
+			for (int i = 0; i < EmployeeNumber.size(); i++) {
 				if (var.IdNumber == this->EmployeeNumber[i]) {
-					var.InfoExist = true;
 
+					var.InfoExist = true;
 					std::cout << "\nId : " << EmployeeNumber[i] << "\n";
 					std::cout << "Name : " << EmployeeFullName[i] << "\n";
 					std::cout << "Age : " << EmployeeAge[i] << "\n";
@@ -427,10 +417,10 @@ void Employees::SearchForEmployeeByFiltring() { // <-- A function that let user 
 			if (var.EmployeeFullName == "0") return; // <-- If user input (0), return one step back
 			var.InfoExist = false;
 
-			for (int i = 0; i < this->EmployeeNumber.size(); i++) {
+			for (int i = 0; i < EmployeeNumber.size(); i++) {
 				if (var.EmployeeFullName == this->EmployeeFullName[i]) {
-					var.InfoExist = true;
 
+					var.InfoExist = true;
 					std::cout << "\nId : " << EmployeeNumber[i] << "\n";
 					std::cout << "Name : " << EmployeeFullName[i] << "\n";
 					std::cout << "Age : " << EmployeeAge[i] << "\n";
@@ -454,17 +444,16 @@ void Employees::SearchForEmployeeByFiltring() { // <-- A function that let user 
 			if (var.EmployeeManagmentNumber == 0) return;
 			var.InfoExist = false;
 
-			for (int i = 0; i < this->EmployeeNumber.size(); i++) {
+			for (int i = 0; i < EmployeeNumber.size(); i++) {
 				if (var.EmployeeManagmentNumber == this->EmployeeManagmentNumber[i]) {
-					var.InfoExist = true;
 
+					var.InfoExist = true;
 					std::cout << "\nId : " << EmployeeNumber[i] << "\n";
 					std::cout << "Name : " << EmployeeFullName[i] << "\n";
 					std::cout << "Age : " << EmployeeAge[i] << "\n";
 					std::cout << "Phone : " << EmployeePhoneNumber[i] << "\n";
 					std::cout << "ManagmentNo. : " << EmployeeManagmentNumber[i] << "\n";
 					std::cout << "Address : " << EmployeeAddress[i] << "\n\n";
-					break;
 				}
 			}
 
@@ -483,10 +472,10 @@ void Employees::SearchForEmployeeByFiltring() { // <-- A function that let user 
 			if (var.EmployeeAddress == "0") return;
 			var.InfoExist = false;
 
-			for (int i = 0; i < this->EmployeeNumber.size(); i++) {
+			for (int i = 0; i < EmployeeNumber.size(); i++) {
 				if (var.EmployeeAddress == this->EmployeeAddress[i]) {
-					var.InfoExist = true;
 
+					var.InfoExist = true;
 					std::cout << "\nId : " << EmployeeNumber[i] << "\n";
 					std::cout << "Name : " << EmployeeFullName[i] << "\n";
 					std::cout << "Age : " << EmployeeAge[i] << "\n";
@@ -515,7 +504,7 @@ void Employees::SearchForEmployeeByFiltring() { // <-- A function that let user 
 	}
 }
 
-void Employees::ViewAllEmployeesInfo() { // <-- A function that show all employee's info
+void Employees::ViewAllEmployeesInfo() const { // <-- A function that show all employee's info
 
 	std::cout << "--- View All Employees Info ---\n\n";
 
@@ -524,13 +513,19 @@ void Employees::ViewAllEmployeesInfo() { // <-- A function that show all employe
 	}
 
 	else {
-		for (int i = 0; i < this->EmployeeNumber.size(); i++) { // <-- Print all employee's info
-			std::cout << "Id : " << EmployeeNumber[i] << "\n";
-			std::cout << "Name : " << EmployeeFullName[i] << "\n";
-			std::cout << "Age : " << EmployeeAge[i] << "\n";
-			std::cout << "Phone : " << EmployeePhoneNumber[i] << "\n";
-			std::cout << "ManagmentNo. : " << EmployeeManagmentNumber[i] << "\n";
-			std::cout << "Address : " << EmployeeAddress[i] << "\n\n";
+		for (int i = 0; i < EmployeeNumber.size(); i++) { // <-- Print all employee's info
+			std::cout << "      ==== Work Info ====\n\n";
+			std::cout << "      Id : " << EmployeeNumber[i] << '\n';
+			std::cout << "      ManagmentNo. : " << EmployeeManagmentNumber[i] << "\n\n";
+
+			std::cout << "      ==== Personal Info ====\n\n";
+			std::cout << "      Name : " << EmployeeFullName[i] << '\n';
+			std::cout << "      Age : " << EmployeeAge[i] << "\n";
+			std::cout << "      Address : " << EmployeeAddress[i] << "\n\n";
+
+			std::cout << "      ==== Contact Info ====\n\n";
+			std::cout << "      Phone : " << EmployeePhoneNumber[i] << '\n';
+			std::cout << "__________________________________\n\n";
 		}
 	}
 }
@@ -538,16 +533,19 @@ void Employees::ViewAllEmployeesInfo() { // <-- A function that show all employe
 void Employees::DeletingEmployeeInfo() { // <-- A function that let user delete an employee info
 
 	std::cout << "      --- Deleting Employee Info ---\n\n";
-	TakeIdNumberAndExitFunction();
+	if (!TakeIdNumberAndExitFunction()) return;
+	var.InfoExist = false;
 
 	// Check if the id is valid or not
-	for (int i = 0; i < this->EmployeeNumber.size(); i++) {
-		if (var.IdNumber == this->EmployeeNumber[i]) {
+	for (int i = 0; i < EmployeeNumber.size(); i++) {
+		if (var.IdNumber == EmployeeNumber[i]) {
 
 			var.InfoExist = true;
+			var.index = i;
+
 			// Take the conformation to delete or not from the user as input
 			std::cout << "\nAre You sure to delete this employee info \"";
-			std::cout << this->EmployeeFullName[i] << "\" ? (Y/N) : ";
+			std::cout << EmployeeFullName[i] << "\" ? (Y/N) : ";
 			var.conform = InputAndErrorHanlder(var.conform);
 		}
 	}
@@ -558,29 +556,27 @@ void Employees::DeletingEmployeeInfo() { // <-- A function that let user delete 
 	}
 
 	// If user choose 'Y' then delete all the employee's info
-	for (int i = 0; i < this->EmployeeNumber.size(); i++) {
+	if (var.conform == 'y' || var.conform == 'Y') {
+		EmployeeNumber.erase(EmployeeNumber.begin() + var.index);
+		EmployeeFullName.erase(EmployeeFullName.begin() + var.index);
+		EmployeeAge.erase(EmployeeAge.begin() + var.index);
+		EmployeePhoneNumber.erase(EmployeePhoneNumber.begin() + var.index);
+		EmployeeAddress.erase(EmployeeAddress.begin() + var.index);
+		EmployeeManagmentNumber.erase(EmployeeManagmentNumber.begin() + var.index);
 
-		if (var.conform == 'y' || var.conform == 'Y') {
-			if (var.IdNumber == EmployeeNumber[i]) {
-
-				this->EmployeeNumber.erase(this->EmployeeNumber.begin() + i);
-				this->EmployeeFullName.erase(this->EmployeeFullName.begin() + i);
-				this->EmployeeAge.erase(this->EmployeeAge.begin() + i);
-				this->EmployeePhoneNumber.erase(this->EmployeePhoneNumber.begin() + i);
-				this->EmployeeAddress.erase(this->EmployeeAddress.begin() + i);
-				this->EmployeeManagmentNumber.erase(this->EmployeeManagmentNumber.begin() + i);
-				std::cout << "The operation has been completed ...\n";
-			}
+		std::cout << "The operation has been completed ...\n";
+		for (int i = 0; i < EmployeeNumber.size(); i++) {
+			EmployeeNumber[i] = i + 1;
 		}
+	}
 
-		else if (var.conform == 'n' || var.conform == 'N') {
-			std::cout << "The operation has been cancelled ...\n";
-			return;
-		}
+	else if (var.conform == 'n' || var.conform == 'N') {
+		std::cout << "The operation has been cancelled ...\n";
+		return;
+	}
 
-		else {
-			std::cout << "\nWrong input, please try again ...\n";
-			return;
-		}
+	else {
+		std::cout << "\nWrong input, please try again ...\n";
+		return;
 	}
 }

@@ -3,15 +3,13 @@
 
 int main() {
 
-	int choice = 0;
 	Employees employee;
-
-	while (choice != 7) { // <-- The main while loop
+	while (var.choice != 7) { // <-- The main while loop
 
 		employee.ViewMainMenu(); // <-- Display the main menu
-		choice = employee.InputAndErrorHanlder(choice); // <-- Take the user input
+		var.choice = employee.InputAndErrorHanlder(var.choice); // <-- Take the user input
 
-		switch (choice) {
+		switch (var.choice) {
 		case 1:
 			system("cls");
 			employee.HireNewEmployee(); // <-- Call the add function
@@ -46,7 +44,7 @@ int main() {
 			return 0;
 		}
 
-		if (choice > 7) { // <-- If input larger than 7 print error massege
+		if (var.choice > 7) { // <-- If input larger than 7 print error massege
 			std::cout << "Wrong input, please try again ...\n";
 		}
 
