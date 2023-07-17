@@ -1,52 +1,53 @@
 #include <iostream>
-#include "../classes/EmployeesClass.h"
+#include <vector>
+#include "../classes/app_variables-struct/VariablesStruct.h"
+#include "../classes/employee's_data_class-imp/EmployeesDataClass.h"
 
 int main() {
 
-	Employees employee;
-	while (var.choice != 7) { // <-- The main while loop
+	EmployeesData employee;
+	while (var.choice != 7) {
 
-		employee.ViewMainMenu(); // <-- Display the main menu
-		var.choice = employee.InputAndErrorHanlder(var.choice); // <-- Take the user input
+		var.print.ViewMainMenu();
+		var.choice = employee.input.InputAndErrorHanlder(var.choice);
 
 		switch (var.choice) {
 		case 1:
 			system("cls");
-			employee.HireNewEmployee(); // <-- Call the add function
+			employee.HireNewEmployee();
 			break;
 
 		case 2:
 			system("cls");
-			employee.UpdatingEmployeesInfo(); // <-- Call the update function
+			employee.UpdatingEmployeesInfo();
 			break;
 
 		case 3:
 			system("cls");
-			employee.SearchForEmployeeByFiltring(); // <-- Call the search function
+			var.search->search_for_employees_info(employee);
 			break;
 
 		case 4:
 			system("cls");
-			employee.ViewAllEmployeesInfo(); // <-- Call the view function
+			var.print.ViewAllEmployeesInfo(employee);
 			break;
 
 		case 5:
 			system("cls");
-			employee.DeletingEmployeeInfo(); // <-- Call the delete function
+			employee.DeletingEmployeeInfo();
 			break;
 
 		case 6:
 			system("cls");
-			employee.ViewAboutProgramMenu(); // <-- Call the about function
+			var.print.ViewAboutProgramMenu();
 			break;
 
-		case 7: // <-- If the user choose return, then exit the program
+		case 7:
 			return 0;
 		}
 
-		if (var.choice > 7) { // <-- If input larger than 7 print error massege
+		if (var.choice > 7)
 			std::cout << "Wrong input, please try again ...\n";
-		}
 
 		system("pause");
 		system("cls");

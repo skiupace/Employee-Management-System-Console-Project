@@ -18,12 +18,27 @@
     <ClCompile Include="src\EmployeeProject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\EmployeesClass.cpp">
+    <ClCompile Include="classes\employee%27s_data_class-imp\EmployeesDataClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\print_class-imp\PrintInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="classes\EmployeesClass.h">
+    <ClInclude Include="classes\employee%27s_class_attributes\EmployeesClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\app_variables-struct\VariablesStruct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\employee%27s_data_class-imp\EmployeesDataClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\print_class-imp\PrintInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\search_class-imp\SearchForData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
