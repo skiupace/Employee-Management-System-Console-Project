@@ -133,7 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="classes\app_variables-struct\VariablesStruct.hpp" />
-    <ClInclude Include="classes\employee%27s_class_attributes\EmployeesClass.hpp" />
+    <ClInclude Include="classes\employee%27s_attributes_class\EmployeesAttributesClass.hpp" />
     <ClInclude Include="classes\employee%27s_data_class-imp\EmployeesDataClass.hpp" />
     <ClInclude Include="classes\print_class-imp\PrintInfo.hpp" />
     <ClInclude Include="runtime_clock\RuntimeClock.hpp" />

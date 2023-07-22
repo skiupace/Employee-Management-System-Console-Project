@@ -26,7 +26,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="classes\employee%27s_class_attributes\EmployeesClass.hpp">
+    <ClInclude Include="classes\employee%27s_attributes_class\EmployeesAttributesClass.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="classes\app_variables-struct\VariablesStruct.hpp">

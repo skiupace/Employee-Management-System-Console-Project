@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 
-class Employees {
+class EmployeesAttributes {
 protected:
 	std::vector<std::string> EmployeeFullName, EmployeeAddress;
 	std::vector<int> EmployeeNumber, EmployeeAge;

@@ -1,7 +1,7 @@
 #pragma once
-#include "../employee's_class_attributes/EmployeesClass.hpp"
+#include "../employee's_attributes_class/EmployeesAttributesClass.hpp"
 
-class EmployeesData : public Employees {
+class EmployeesData : public EmployeesAttributes {
 public:
 	const bool isEmpty() const;
 	void HireNewEmployee();
