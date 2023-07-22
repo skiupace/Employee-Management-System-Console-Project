@@ -1,40 +1,40 @@
 #include <iostream>
 #include <vector>
-#include "../classes/app_variables-struct/VariablesStruct.h"
-#include "../classes/employee's_data_class-imp/EmployeesDataClass.h"
+#include "../classes/app_variables-struct/VariablesStruct.hpp"
+#include "../classes/employee's_data_class-imp/EmployeesDataClass.hpp"
 
 int main() {
 
-	EmployeesData employee;
+	EmployeesData employee_info;
 	while (var.choice != 7) {
 
 		var.print.ViewMainMenu();
-		var.choice = employee.input.InputAndErrorHanlder(var.choice);
+		employee_info.input.InputAndErrorHanlder(var.choice);
 
 		switch (var.choice) {
 		case 1:
 			system("cls");
-			employee.HireNewEmployee();
+			employee_info.HireNewEmployee();
 			break;
 
 		case 2:
 			system("cls");
-			employee.UpdatingEmployeesInfo();
+			employee_info.UpdatingEmployeesInfo();
 			break;
 
 		case 3:
 			system("cls");
-			var.search->search_for_employees_info(employee);
+			var.search->search_for_employees_info(employee_info);
 			break;
 
 		case 4:
 			system("cls");
-			var.print.ViewAllEmployeesInfo(employee);
+			var.print.ViewAllEmployeesInfo(employee_info);
 			break;
 
 		case 5:
 			system("cls");
-			employee.DeletingEmployeeInfo();
+			employee_info.DeletingEmployeeInfo();
 			break;
 
 		case 6:
@@ -47,7 +47,7 @@ int main() {
 		}
 
 		if (var.choice > 7)
-			std::cout << "Wrong input, please try again ...\n";
+			var.print.PrintErrorMessage();
 
 		system("pause");
 		system("cls");

@@ -132,11 +132,12 @@
     <ClCompile Include="classes\employee%27s_data_class-imp\EmployeesDataClass.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="classes\app_variables-struct\VariablesStruct.h" />
-    <ClInclude Include="classes\employee%27s_class_attributes\EmployeesClass.h" />
-    <ClInclude Include="classes\employee%27s_data_class-imp\EmployeesDataClass.h" />
-    <ClInclude Include="classes\print_class-imp\PrintInfo.h" />
-    <ClInclude Include="classes\search_class-imp\SearchForData.h" />
+    <ClInclude Include="classes\app_variables-struct\VariablesStruct.hpp" />
+    <ClInclude Include="classes\employee%27s_class_attributes\EmployeesClass.hpp" />
+    <ClInclude Include="classes\employee%27s_data_class-imp\EmployeesDataClass.hpp" />
+    <ClInclude Include="classes\print_class-imp\PrintInfo.hpp" />
+    <ClInclude Include="runtime_clock\RuntimeClock.hpp" />
+    <ClInclude Include="classes\search_class-imp\SearchForData.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

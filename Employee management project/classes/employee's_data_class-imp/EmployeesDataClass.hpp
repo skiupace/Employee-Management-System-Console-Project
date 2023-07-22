@@ -1,5 +1,5 @@
 #pragma once
-#include "../employee's_class_attributes/EmployeesClass.h"
+#include "../employee's_class_attributes/EmployeesClass.hpp"
 
 class EmployeesData : public Employees {
 public:
@@ -7,11 +7,12 @@ public:
 	void HireNewEmployee();
 	void UpdatingEmployeesInfo();
 	void DeletingEmployeeInfo();
+	bool CheckIfDataExist(bool) const;
 
 	class TakeInput {
 	public:
 		template<class T>
-		T InputAndErrorHanlder(T& var);
+		void InputAndErrorHanlder(T& var) const;
 	} input;
 
 private:

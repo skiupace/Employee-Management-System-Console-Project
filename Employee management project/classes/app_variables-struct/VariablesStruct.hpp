@@ -1,5 +1,5 @@
-#include "../print_class-imp/PrintInfo.h"
-#include "../search_class-imp/SearchForData.h"
+#include "../print_class-imp/PrintInfo.hpp"
+#include "../search_class-imp/SearchForData.hpp"
 
 #ifndef variables
 #define variables
@@ -14,7 +14,7 @@ struct variables { // <-- A structure with all most used variables
 
 	std::string EmployeeFullName, EmployeeAddress;
 	int EmployeeNumber{}, EmployeeAge{}, EmployeePhoneNumber{},
-		EmployeeManagmentNumber{}, IdNumber{}, choice{}, index{};
+		EmployeeManagementNumber{}, IdNumber{}, choice{}, index{};
 } var;
 
 #endif // !variables

@@ -26,19 +26,22 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="classes\employee%27s_class_attributes\EmployeesClass.h">
+    <ClInclude Include="classes\employee%27s_class_attributes\EmployeesClass.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="classes\app_variables-struct\VariablesStruct.h">
+    <ClInclude Include="classes\app_variables-struct\VariablesStruct.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="classes\employee%27s_data_class-imp\EmployeesDataClass.h">
+    <ClInclude Include="classes\employee%27s_data_class-imp\EmployeesDataClass.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="classes\print_class-imp\PrintInfo.h">
+    <ClInclude Include="classes\print_class-imp\PrintInfo.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="classes\search_class-imp\SearchForData.h">
+    <ClInclude Include="classes\search_class-imp\SearchForData.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="runtime_clock\RuntimeClock.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

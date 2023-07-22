@@ -1,9 +1,9 @@
 #include <iostream>
 #include <vector>
-#include "../print_class-imp/PrintInfo.h"
-#include "../employee's_data_class-imp/EmployeesDataClass.h"
+#include "../print_class-imp/PrintInfo.hpp"
+#include "../employee's_data_class-imp/EmployeesDataClass.hpp"
 
-void PrintInfo::ViewMainMenu() const {
+void PrintInfo::ViewMainMenu() {
 	std::cout << "--- Employee Management System ---\n\n";
 	std::cout << "1- Hire New Employee\n";
 	std::cout << "2- Updating Uncomplete Employee Info\n";
@@ -15,7 +15,7 @@ void PrintInfo::ViewMainMenu() const {
 	std::cout << "Enter your choice -> ";
 }
 
-void PrintInfo::ViewUpdatingOptions() const {
+void PrintInfo::ViewUpdatingOptions() {
 	std::cout << "--- Updating Uncomplete Employee Info ---\n\n";
 	std::cout << "1- Update Employee Full Name\n";
 	std::cout << "2- Update Employee Age\n";
@@ -26,7 +26,7 @@ void PrintInfo::ViewUpdatingOptions() const {
 	std::cout << "Enter your choice -> ";
 }
 
-void PrintInfo::ViewSearchingOptions() const {
+void PrintInfo::ViewSearchingOptions() {
 	std::cout << "--- Search For Employee By Filters ---\n\n";
 	std::cout << "1- Search By Employee Number (ID)\n";
 	std::cout << "2- Search By Employee Full Name\n";
@@ -36,7 +36,7 @@ void PrintInfo::ViewSearchingOptions() const {
 	std::cout << "Enter your choice -> ";
 }
 
-void PrintInfo::ViewAboutProgramMenu() const {
+void PrintInfo::ViewAboutProgramMenu() {
 	std::cout << "      --- About the program ---\n\n\n";
 	std::cout << "*************************************\n";
 	std::cout << "*                                   *\n";
@@ -45,27 +45,30 @@ void PrintInfo::ViewAboutProgramMenu() const {
 	std::cout << "*************************************\n\n\n";
 }
 
-void PrintInfo::ViewAllEmployeesInfo(EmployeesData& obj) const {
+void PrintInfo::PrintErrorMessage() {
+	std::cout << "Error: invalid input, please try again ...\n";
+}
+
+void PrintInfo::ViewAllEmployeesInfo(const EmployeesData& employee_info) {
 
 	std::cout << "--- View All Employees Info ---\n\n";
-
-	if (obj.isEmpty()) // <-- Check if the vector empty or not
+	if (employee_info.isEmpty()) // <-- Check if the vector empty or not
 		std::cout << "It's empty you didn't add anything ...\n";
 
 	else {
-		for (int i = 0; i < obj.EmployeeNumber.size(); i++) {
-			std::cout << "      ==== Work Info ====\n\n";
-			std::cout << "      Id : " << obj.EmployeeNumber.at(i) << '\n';
-			std::cout << "      ManagmentNo. : " << obj.EmployeeManagmentNumber.at(i) << "\n\n";
+		for (int i = 0; i < employee_info.EmployeeNumber.size(); i++) {
+			std::cout << "==== Work Info ====\n\n";
+			std::cout << "Id : " << employee_info.EmployeeNumber.at(i) << '\n';
+			std::cout << "ManagmentNo. : " << employee_info.EmployeeManagementNumber.at(i) << "\n\n";
 
-			std::cout << "      ==== Personal Info ====\n\n";
-			std::cout << "      Name : " << obj.EmployeeFullName.at(i) << '\n';
-			std::cout << "      Age : " << obj.EmployeeAge.at(i) << "\n";
-			std::cout << "      Address : " << obj.EmployeeAddress.at(i) << "\n\n";
+			std::cout << "==== Personal Info ====\n\n";
+			std::cout << "Name : " << employee_info.EmployeeFullName.at(i) << '\n';
+			std::cout << "Age : " << employee_info.EmployeeAge.at(i) << "\n";
+			std::cout << "Address : " << employee_info.EmployeeAddress.at(i) << "\n\n";
 
-			std::cout << "      ==== Contact Info ====\n\n";
-			std::cout << "      Phone : " << obj.EmployeePhoneNumber.at(i) << '\n';
-			std::cout << "__________________________________\n\n";
+			std::cout << "==== Contact Info ====\n\n";
+			std::cout << "Phone Number : " << employee_info.EmployeePhoneNumber.at(i) << "\n\n";
+			std::cout << std::string(34, '-') << "\n\n";
 		}
 	}
 }
