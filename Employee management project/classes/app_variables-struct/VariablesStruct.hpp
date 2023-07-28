@@ -9,9 +9,6 @@ struct variables { // <-- A structure with all most used variables
 	char conform{};
 	bool InfoExist{};
 
-	PrintInfo print;
-	SearchForData* search;
-
 	std::string EmployeeFullName, EmployeeAddress;
 	int EmployeeNumber{}, EmployeeAge{}, EmployeePhoneNumber{},
 		EmployeeManagementNumber{}, IdNumber{}, choice{}, index{};

@@ -5,12 +5,12 @@
 #include "../employee's_data_class-imp/EmployeesDataClass.hpp"
 
 template<class T>
-void EmployeesData::TakeInput::InputAndErrorHanlder(T& variable) const { // <-- A function that take and check the input
+void EmployeesData::TakeInput::InputAndErrorHanlder(T& variable) const {
 	std::cin >> variable;
 	if (std::cin.fail()) {
 		std::cin.clear();
 		std::cin.ignore(256, '\n');
-		var.print.PrintErrorMessage();
+		PrintInfo::PrintErrorMessage();
 	}
 }
 
@@ -64,14 +64,14 @@ void EmployeesData::HireNewEmployee() {
 		std::cout << "The operation has been cancelled ...\n";
 
 	else
-		var.print.PrintErrorMessage();
+		PrintInfo::PrintErrorMessage();
 }
 
 void EmployeesData::UpdatingEmployeesInfo() {
 
 	while (var.choice != 7) {
 
-		var.print.ViewUpdatingOptions();
+		PrintInfo::ViewUpdatingOptions();
 		std::cin >> var.choice;
 
 		var.InfoExist = false;
@@ -114,7 +114,7 @@ void EmployeesData::UpdatingEmployeesInfo() {
 			}
 
 			else {
-				var.print.PrintErrorMessage();
+				PrintInfo::PrintErrorMessage();
 				return;
 			}
 
@@ -161,7 +161,7 @@ void EmployeesData::UpdatingEmployeesInfo() {
 			}
 
 			else {
-				var.print.PrintErrorMessage();
+				PrintInfo::PrintErrorMessage();
 				return;
 			}
 
@@ -207,7 +207,7 @@ void EmployeesData::UpdatingEmployeesInfo() {
 			}
 
 			else {
-				var.print.PrintErrorMessage();
+				PrintInfo::PrintErrorMessage();
 				return;
 			}
 
@@ -253,7 +253,7 @@ void EmployeesData::UpdatingEmployeesInfo() {
 			}
 
 			else {
-				var.print.PrintErrorMessage();
+				PrintInfo::PrintErrorMessage();
 				return;
 			}
 
@@ -299,7 +299,7 @@ void EmployeesData::UpdatingEmployeesInfo() {
 			}
 
 			else {
-				var.print.PrintErrorMessage();
+				PrintInfo::PrintErrorMessage();
 				return;
 			}
 
@@ -315,8 +315,8 @@ void EmployeesData::UpdatingEmployeesInfo() {
 			return;
 		}
 
-		if (var.choice > 6)
-			var.print.PrintErrorMessage();
+		if (var.choice > 6 || var.choice <= 0)
+			PrintInfo::PrintErrorMessage();
 
 		system("pause");
 		system("cls");
@@ -356,13 +356,14 @@ void EmployeesData::DeletingEmployeeInfo() {
 		EmployeeManagementNumber.erase(EmployeeManagementNumber.begin() + var.index);
 
 		std::cout << "The operation has been completed ...\n";
-		for (int i = 0; i < EmployeeNumber.size(); i++)
+		for (int i = 0; i < EmployeeNumber.size(); ++i)
 			EmployeeNumber.at(i) = i + 1;
+		var.EmployeeNumber--;
 	}
 
 	else if (var.conform == 'n' || var.conform == 'N')
 		std::cout << "The operation has been cancelled ...\n";
 
 	else
-		var.print.PrintErrorMessage();
+		PrintInfo::PrintErrorMessage();
 }

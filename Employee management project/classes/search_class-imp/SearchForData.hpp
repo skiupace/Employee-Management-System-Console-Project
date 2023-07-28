@@ -5,11 +5,11 @@
 
 class SearchForData {
 public:
-	void search_for_employees_info(const EmployeesData& employee_info) {
+	static void search_for_employees_info(const EmployeesData& employee_info) {
 		
 		do {
 			var.InfoExist = false;
-			var.print.ViewSearchingOptions();
+			PrintInfo::ViewSearchingOptions();
 			employee_info.input.InputAndErrorHanlder(var.choice);
 
 			switch (var.choice) {
@@ -125,8 +125,8 @@ public:
 				return;
 			}
 
-			if (var.choice > 5)
-				var.print.PrintErrorMessage();
+			if (var.choice > 5 || var.choice <= 0)
+				PrintInfo::PrintErrorMessage();
 
 			system("pause");
 			system("cls");

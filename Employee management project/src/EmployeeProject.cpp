@@ -8,7 +8,7 @@ int main() {
 	EmployeesData employee_info;
 	while (var.choice != 7) {
 
-		var.print.ViewMainMenu();
+		PrintInfo::ViewMainMenu();
 		employee_info.input.InputAndErrorHanlder(var.choice);
 
 		switch (var.choice) {
@@ -24,12 +24,12 @@ int main() {
 
 		case 3:
 			system("cls");
-			var.search->search_for_employees_info(employee_info);
+			SearchForData::search_for_employees_info(employee_info);
 			break;
 
 		case 4:
 			system("cls");
-			var.print.ViewAllEmployeesInfo(employee_info);
+			PrintInfo::ViewAllEmployeesInfo(employee_info);
 			break;
 
 		case 5:
@@ -39,15 +39,15 @@ int main() {
 
 		case 6:
 			system("cls");
-			var.print.ViewAboutProgramMenu();
+			PrintInfo::ViewAboutProgramMenu();
 			break;
 
 		case 7:
 			return 0;
 		}
 
-		if (var.choice > 7)
-			var.print.PrintErrorMessage();
+		if (var.choice > 7 || var.choice <= 0)
+			PrintInfo::PrintErrorMessage();
 
 		system("pause");
 		system("cls");

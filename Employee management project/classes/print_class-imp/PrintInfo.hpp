@@ -3,10 +3,10 @@
 
 class PrintInfo {
 public:
-	void ViewMainMenu();
-	void ViewAboutProgramMenu();
-	void ViewUpdatingOptions();
-	void ViewSearchingOptions();
-	void PrintErrorMessage();
-	void ViewAllEmployeesInfo(const EmployeesData& obj);
+	static void ViewMainMenu();
+	static void ViewAboutProgramMenu();
+	static void ViewUpdatingOptions();
+	static void ViewSearchingOptions();
+	static void PrintErrorMessage();
+	static void ViewAllEmployeesInfo(const EmployeesData& obj);
 };
