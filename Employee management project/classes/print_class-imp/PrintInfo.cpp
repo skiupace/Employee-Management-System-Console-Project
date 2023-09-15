@@ -49,7 +49,7 @@ void PrintInfo::PrintErrorMessage() {
 	std::cout << "Error: invalid input, please try again ...\n";
 }
 
-void PrintInfo::ViewAllEmployeesInfo(const EmployeesData& employee_info) {
+void PrintInfo::ViewAllEmployeesInfo(const EmployeesData& employee_info) noexcept {
 
 	std::cout << "--- View All Employees Info ---\n\n";
 	if (employee_info.isEmpty()) // <-- Check if the vector empty or not

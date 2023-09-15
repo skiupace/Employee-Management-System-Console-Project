@@ -3,17 +3,12 @@
 
 class EmployeesData : public EmployeesAttributes {
 public:
-	const bool isEmpty() const;
-	void HireNewEmployee();
-	void UpdatingEmployeesInfo();
-	void DeletingEmployeeInfo();
-	bool CheckIfDataExist(bool) const;
+	void HireNewEmployee() noexcept;
+	void UpdatingEmployeesInfo() noexcept;
+	void DeletingEmployeeInfo() noexcept;
 
-	class TakeInput {
-	public:
-		template<class T>
-		void InputAndErrorHanlder(T& var) const;
-	} input;
+	bool isEmpty() const noexcept;
+	constexpr bool CheckIfDataExist(bool) const noexcept;
 
 private:
 	friend class PrintInfo;

@@ -2,23 +2,14 @@
 #include <string>
 #include <vector>
 #include "../app_variables-struct/VariablesStruct.hpp"
+#include "../input_handler_class-imp/InputHandlerClass.hpp"
 #include "../employee's_data_class-imp/EmployeesDataClass.hpp"
 
-template<class T>
-void EmployeesData::TakeInput::InputAndErrorHanlder(T& variable) const {
-	std::cin >> variable;
-	if (std::cin.fail()) {
-		std::cin.clear();
-		std::cin.ignore(256, '\n');
-		PrintInfo::PrintErrorMessage();
-	}
-}
-
-const bool EmployeesData::isEmpty() const {
+bool EmployeesData::isEmpty() const noexcept {
 	return EmployeeNumber.empty();
 }
 
-bool EmployeesData::CheckIfDataExist(bool isExist) const {
+constexpr bool EmployeesData::CheckIfDataExist(bool isExist) const noexcept {
 	if (!isExist) {
 		std::cout << "\nThe entered id isn't a valid id, please try again ...\n";
 		return false;
@@ -26,7 +17,7 @@ bool EmployeesData::CheckIfDataExist(bool isExist) const {
 		return true;
 }
 
-void EmployeesData::HireNewEmployee() {
+void EmployeesData::HireNewEmployee() noexcept {
 
 	std::cout << "--- Hire New Employee ---\n\n";
 	std::cout << "Enter Employee Full Name or 0 to return : ";
@@ -36,19 +27,19 @@ void EmployeesData::HireNewEmployee() {
 		return;
 
 	std::cout << "Enter Employee Age : ";
-	input.InputAndErrorHanlder(var.EmployeeAge);
+	InputHandler::InputAndErrorHanlder(var.EmployeeAge);
 
 	std::cout << "Enter Employee Phone Number : ";
-	input.InputAndErrorHanlder(var.EmployeePhoneNumber);
+	InputHandler::InputAndErrorHanlder(var.EmployeePhoneNumber);
 
 	std::cout << "Enter Employee Managment Number : ";
-	input.InputAndErrorHanlder(var.EmployeeManagementNumber);
+	InputHandler::InputAndErrorHanlder(var.EmployeeManagementNumber);
 
 	std::cout << "Enter Employee Address : ";
 	std::getline(std::cin >> std::ws, var.EmployeeAddress);
 
 	std::cout << "\nAre you sure to add this info ? (Y/N) : ";
-	input.InputAndErrorHanlder(var.conform);
+	InputHandler::InputAndErrorHanlder(var.conform);
 
 	if (var.conform == 'y' || var.conform == 'Y') {
 		this->EmployeeNumber.push_back(++var.EmployeeNumber);
@@ -67,7 +58,7 @@ void EmployeesData::HireNewEmployee() {
 		PrintInfo::PrintErrorMessage();
 }
 
-void EmployeesData::UpdatingEmployeesInfo() {
+void EmployeesData::UpdatingEmployeesInfo() noexcept {
 
 	while (var.choice != 7) {
 
@@ -82,7 +73,7 @@ void EmployeesData::UpdatingEmployeesInfo() {
 		case 1:
 			system("cls");
 			std::cout << "Enter Employee Id Number or 0 to return : ";
-			input.InputAndErrorHanlder(var.IdNumber);
+			InputHandler::InputAndErrorHanlder(var.IdNumber);
 
 			if (var.IdNumber == 0)
 				return;
@@ -92,7 +83,7 @@ void EmployeesData::UpdatingEmployeesInfo() {
 				if (EmployeeNumber.at(i) == var.IdNumber) {
 					std::cout << "\nAre you sure to update this employee info \"";
 					std::cout << EmployeeFullName.at(i) << "\" ? (Y/N) : ";
-					input.InputAndErrorHanlder(var.conform);
+					InputHandler::InputAndErrorHanlder(var.conform);
 					var.InfoExist = true;
 				}
 			}
@@ -130,7 +121,7 @@ void EmployeesData::UpdatingEmployeesInfo() {
 		case 2:
 			system("cls");
 			std::cout << "Enter Employee Id Number or 0 to return : ";
-			input.InputAndErrorHanlder(var.IdNumber);
+			InputHandler::InputAndErrorHanlder(var.IdNumber);
 
 			if (var.IdNumber == 0)
 				return;
@@ -139,7 +130,7 @@ void EmployeesData::UpdatingEmployeesInfo() {
 				if (EmployeeNumber.at(i) == var.IdNumber) {
 					std::cout << "\nAre you sure to update this employee info \"";
 					std::cout << EmployeeFullName.at(i) << "\" ? (Y/N) : ";
-					input.InputAndErrorHanlder(var.conform);
+					InputHandler::InputAndErrorHanlder(var.conform);
 					var.InfoExist = true;
 				}
 			}
@@ -149,7 +140,7 @@ void EmployeesData::UpdatingEmployeesInfo() {
 
 			if (var.conform == 'y' || var.conform == 'Y') {
 				std::cout << "Enter Employee Age or 0 to return : ";
-				input.InputAndErrorHanlder(var.EmployeeAge);
+				InputHandler::InputAndErrorHanlder(var.EmployeeAge);
 
 				if (var.EmployeeAge == 0)
 					return;
@@ -176,7 +167,7 @@ void EmployeesData::UpdatingEmployeesInfo() {
 		case 3:
 			system("cls");
 			std::cout << "Enter Employee Id Number or 0 to return : ";
-			input.InputAndErrorHanlder(var.IdNumber);
+			InputHandler::InputAndErrorHanlder(var.IdNumber);
 
 			if (var.IdNumber == 0)
 				return;
@@ -185,7 +176,7 @@ void EmployeesData::UpdatingEmployeesInfo() {
 				if (EmployeeNumber.at(i) == var.IdNumber) {
 					std::cout << "\nAre you sure to update this employee info \"";
 					std::cout << EmployeeFullName.at(i) << "\" ? (Y/N) : ";
-					input.InputAndErrorHanlder(var.conform);
+					InputHandler::InputAndErrorHanlder(var.conform);
 					var.InfoExist = true;
 				}
 			}
@@ -195,7 +186,7 @@ void EmployeesData::UpdatingEmployeesInfo() {
 
 			if (var.conform == 'y' || var.conform == 'Y') {
 				std::cout << "Enter Employee Phone Number or 0 to return : ";
-				input.InputAndErrorHanlder(var.EmployeePhoneNumber);
+				InputHandler::InputAndErrorHanlder(var.EmployeePhoneNumber);
 
 				if (var.EmployeePhoneNumber == 0)
 					return;
@@ -222,7 +213,7 @@ void EmployeesData::UpdatingEmployeesInfo() {
 		case 4:
 			system("cls");
 			std::cout << "Enter Employee Id Number or 0 to return : ";
-			input.InputAndErrorHanlder(var.IdNumber);
+			InputHandler::InputAndErrorHanlder(var.IdNumber);
 
 			if (var.IdNumber == 0)
 				return;
@@ -231,7 +222,7 @@ void EmployeesData::UpdatingEmployeesInfo() {
 				if (EmployeeNumber.at(i) == var.IdNumber) {
 					std::cout << "\nAre you sure to update this employee info \"";
 					std::cout << EmployeeFullName.at(i) << "\" ? (Y/N) : ";
-					input.InputAndErrorHanlder(var.conform);
+					InputHandler::InputAndErrorHanlder(var.conform);
 					var.InfoExist = true;
 				}
 			}
@@ -241,7 +232,7 @@ void EmployeesData::UpdatingEmployeesInfo() {
 
 			if (var.conform == 'y' || var.conform == 'Y') {
 				std::cout << "Enter Employee Managment Number or 0 to return : ";
-				input.InputAndErrorHanlder(var.EmployeeManagementNumber);
+				InputHandler::InputAndErrorHanlder(var.EmployeeManagementNumber);
 
 				if (var.EmployeeManagementNumber == 0)
 					return;
@@ -268,7 +259,7 @@ void EmployeesData::UpdatingEmployeesInfo() {
 		case 5:
 			system("cls");
 			std::cout << "Enter Employee Id Number or 0 to return : ";
-			input.InputAndErrorHanlder(var.IdNumber);
+			InputHandler::InputAndErrorHanlder(var.IdNumber);
 
 			if (var.IdNumber == 0)
 				return;
@@ -277,7 +268,7 @@ void EmployeesData::UpdatingEmployeesInfo() {
 				if (EmployeeNumber.at(i) == var.IdNumber) {
 					std::cout << "\nAre you sure to update this employee info \"";
 					std::cout << EmployeeFullName.at(i) << "\" ? (Y/N) : ";
-					input.InputAndErrorHanlder(var.conform);
+					InputHandler::InputAndErrorHanlder(var.conform);
 					var.InfoExist = true;
 				}
 			}
@@ -313,22 +304,22 @@ void EmployeesData::UpdatingEmployeesInfo() {
 
 		case 6:
 			return;
-		}
 
-		if (var.choice > 6 || var.choice <= 0)
+		default:
 			PrintInfo::PrintErrorMessage();
+		}
 
 		system("pause");
 		system("cls");
 	}
 }
 
-void EmployeesData::DeletingEmployeeInfo() {
+void EmployeesData::DeletingEmployeeInfo() noexcept {
 
 	std::cout << "      --- Deleting Employee Info ---\n\n";
 
 	std::cout << "Enter Employee Id Number or 0 to return : ";
-	input.InputAndErrorHanlder(var.IdNumber);
+	InputHandler::InputAndErrorHanlder(var.IdNumber);
 
 	var.InfoExist = false;
 	if (var.IdNumber == 0)
@@ -338,7 +329,7 @@ void EmployeesData::DeletingEmployeeInfo() {
 		if (EmployeeNumber.at(i) == var.IdNumber) {
 			std::cout << "\nAre you sure to delete this employee info \"";
 			std::cout << EmployeeFullName.at(i) << "\" ? (Y/N) : ";
-			input.InputAndErrorHanlder(var.conform);
+			InputHandler::InputAndErrorHanlder(var.conform);
 			var.InfoExist = true;
 			var.index = i;
 		}

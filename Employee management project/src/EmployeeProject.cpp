@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "../classes/app_variables-struct/VariablesStruct.hpp"
+#include "../classes/input_handler_class-imp/InputHandlerClass.hpp"
 #include "../classes/employee's_data_class-imp/EmployeesDataClass.hpp"
 
 int main() {
@@ -9,7 +10,7 @@ int main() {
 	while (var.choice != 7) {
 
 		PrintInfo::ViewMainMenu();
-		employee_info.input.InputAndErrorHanlder(var.choice);
+		InputHandler::InputAndErrorHanlder(var.choice);
 
 		switch (var.choice) {
 		case 1:
@@ -44,10 +45,10 @@ int main() {
 
 		case 7:
 			return 0;
-		}
 
-		if (var.choice > 7 || var.choice <= 0)
+		default:
 			PrintInfo::PrintErrorMessage();
+		}
 
 		system("pause");
 		system("cls");

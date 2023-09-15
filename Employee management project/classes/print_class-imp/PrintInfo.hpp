@@ -8,5 +8,5 @@ public:
 	static void ViewUpdatingOptions();
 	static void ViewSearchingOptions();
 	static void PrintErrorMessage();
-	static void ViewAllEmployeesInfo(const EmployeesData& obj);
+	static void ViewAllEmployeesInfo(const EmployeesData&) noexcept;
 };

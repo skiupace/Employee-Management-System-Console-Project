@@ -24,6 +24,9 @@
     <ClCompile Include="classes\print_class-imp\PrintInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="classes\search_class-imp\SearchForData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="classes\employee%27s_attributes_class\EmployeesAttributesClass.hpp">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="runtime_clock\RuntimeClock.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\input_handler_class-imp\InputHandlerClass.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

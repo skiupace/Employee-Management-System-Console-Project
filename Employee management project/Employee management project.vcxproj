@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="classes\print_class-imp\PrintInfo.cpp" />
+    <ClCompile Include="classes\search_class-imp\SearchForData.cpp" />
     <ClCompile Include="src\EmployeeProject.cpp" />
     <ClCompile Include="classes\employee%27s_data_class-imp\EmployeesDataClass.cpp" />
   </ItemGroup>
@@ -135,6 +136,7 @@
     <ClInclude Include="classes\app_variables-struct\VariablesStruct.hpp" />
     <ClInclude Include="classes\employee%27s_attributes_class\EmployeesAttributesClass.hpp" />
     <ClInclude Include="classes\employee%27s_data_class-imp\EmployeesDataClass.hpp" />
+    <ClInclude Include="classes\input_handler_class-imp\InputHandlerClass.hpp" />
     <ClInclude Include="classes\print_class-imp\PrintInfo.hpp" />
     <ClInclude Include="runtime_clock\RuntimeClock.hpp" />
     <ClInclude Include="classes\search_class-imp\SearchForData.hpp" />
